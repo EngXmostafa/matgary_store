@@ -11,9 +11,9 @@ import '../../features/customer/main_layout/main_layout.dart';
 
 import '../../features/customer/wishlist/presentation/manager/wishlist_cubit.dart';
 import '../../features/customer/wishlist/presentation/pages/wishlist_screen.dart';
-import '../../features/seller/auth/presentation/pages/seller_login_screen.dart';
-import '../../features/seller/auth/presentation/pages/seller_sign_up_screen.dart';
-import '../../features/seller/main_layout/main_layout.dart';
+// import '../../features/seller/auth/presentation/pages/seller_login_screen.dart';
+// import '../../features/seller/auth/presentation/pages/seller_sign_up_screen.dart';
+// import '../../features/seller/main_layout/main_layout.dart';
 import '../../features/splash/presentation/pages/first_screen.dart';
 import '../../features/splash/presentation/pages/splash_screen.dart';
 import '../../injection_container.dart';
@@ -102,22 +102,22 @@ abstract class AppRouter {
       //       settings: setting,
       //     );
       //
-      case RouteNames.sellerSignUpScreen:
-        return MaterialPageRoute(
-          builder: (context) => const SellerSignUpScreen(),
-          settings: setting,
-        );
-      case RouteNames.sellerLoginScreen:
-        return MaterialPageRoute(
-          builder: (_) => const SellerLoginScreen(),
-
-          settings: setting,
-        );
-      case RouteNames.sellerMainLayoutScreen:
-        return MaterialPageRoute(
-          builder: (_) => const SellerMainLayout(),
-          settings: setting,
-        );
+      // case RouteNames.sellerSignUpScreen:
+      //   return MaterialPageRoute(
+      //     builder: (context) => const SellerSignUpScreen(),
+      //     settings: setting,
+      //   );
+      // case RouteNames.sellerLoginScreen:
+      //   return MaterialPageRoute(
+      //     builder: (_) => const SellerLoginScreen(),
+      //
+      //     settings: setting,
+      //   );
+      // case RouteNames.sellerMainLayoutScreen:
+      //   return MaterialPageRoute(
+      //     builder: (_) => const SellerMainLayout(),
+      //     settings: setting,
+      //   );
       //   case RouteNames.profileUserScreen:
       //     return MaterialPageRoute(
       //       builder: (context) => const ProfileUserScreen(),

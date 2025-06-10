@@ -13,7 +13,7 @@ import 'core/services/loading_service.dart';
 
 import 'core/theme/_index.dart';
 import 'features/customer/auth/presentation/manager/auth_cubit.dart';
-import 'features/seller/auth/presentation/manager/seller_auth_cubit.dart';
+// import 'features/seller/auth/presentation/manager/seller_auth_cubit.dart';
 import 'features/splash/presentation/manager/splash_cubit.dart';
 import 'injection_container.dart' as di;
 
@@ -48,9 +48,9 @@ class MatgaryApp extends StatelessWidget {
           providers: [
             BlocProvider<SplashCubit>(create: (_) => di.sl<SplashCubit>()..initialize(),),
             BlocProvider<AuthCubit>(create: (_) => di.sl<AuthCubit>()),
-            BlocProvider<SellerAuthCubit>(
-              create: (_) => di.sl<SellerAuthCubit>(),
-            ),
+            // BlocProvider<SellerAuthCubit>(
+            //   create: (_) => di.sl<SellerAuthCubit>(),
+            // ),
           ],
 
           child: MaterialApp(

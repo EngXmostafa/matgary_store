@@ -44,21 +44,21 @@ import 'features/customer/wishlist/domain/use_cases/add_to_wishlist_usecase.dart
 import 'features/customer/wishlist/domain/use_cases/get_wishlist_usecase.dart';
 import 'features/customer/wishlist/domain/use_cases/remove_from_wishlist_usecase.dart';
 import 'features/customer/wishlist/presentation/manager/wishlist_cubit.dart';
-import 'features/seller/auth/data/data_sources/seller_auth_interface_data_source.dart';
-import 'features/seller/auth/data/data_sources/seller_remote_data_source.dart';
-import 'features/seller/auth/data/repositories/seller_repositories_imp.dart';
-import 'features/seller/auth/domain/repositories/seller_auth_repository.dart';
-import 'features/seller/auth/domain/use_cases/seller_login_use_case.dart';
-import 'features/seller/auth/domain/use_cases/seller_logout_use_case.dart';
-import 'features/seller/auth/domain/use_cases/seller_register_use_case.dart';
-import 'features/seller/auth/presentation/manager/seller_auth_cubit.dart';
-import 'features/seller/products/data/datasources/products_remote_data_source.dart';
-import 'features/seller/products/data/repositories/products_repository_impl.dart';
-import 'features/seller/products/domain/repositories/products_repository.dart';
-import 'features/seller/products/domain/use_cases/add_product_use_case.dart';
-import 'features/seller/products/domain/use_cases/get_brands_use_case.dart';
-import 'features/seller/products/domain/use_cases/get_categories_use_case.dart';
-import 'features/seller/products/presentation/manager/add_product_cubit.dart';
+// import 'features/seller/auth/data/data_sources/seller_auth_interface_data_source.dart';
+// import 'features/seller/auth/data/data_sources/seller_remote_data_source.dart';
+// import 'features/seller/auth/data/repositories/seller_repositories_imp.dart';
+// import 'features/seller/auth/domain/repositories/seller_auth_repository.dart';
+// import 'features/seller/auth/domain/use_cases/seller_login_use_case.dart';
+// import 'features/seller/auth/domain/use_cases/seller_logout_use_case.dart';
+// import 'features/seller/auth/domain/use_cases/seller_register_use_case.dart';
+// import 'features/seller/auth/presentation/manager/seller_auth_cubit.dart';
+// import 'features/seller/products/data/datasources/products_remote_data_source.dart';
+// import 'features/seller/products/data/repositories/products_repository_impl.dart';
+// import 'features/seller/products/domain/repositories/products_repository.dart';
+// import 'features/seller/products/domain/use_cases/add_product_use_case.dart';
+// import 'features/seller/products/domain/use_cases/get_brands_use_case.dart';
+// import 'features/seller/products/domain/use_cases/get_categories_use_case.dart';
+// import 'features/seller/products/presentation/manager/add_product_cubit.dart';
 import 'features/splash/presentation/manager/splash_cubit.dart';
 
 // home feature
@@ -134,29 +134,29 @@ Future<void> init() async {
     ),
   );
 
-  // ─── Seller Auth ───────────────────────────────────────────────────────
-  sl.registerLazySingleton<SellerAuthInterfaceDataSource>(
-        () => SellerRemoteDataSource(sl<Dio>(instanceName: 'publicDio')),
-  );
-  sl.registerLazySingleton<SellerAuthRepository>(
-        () => SellerAuthRepositoriesImp(sl<SellerAuthInterfaceDataSource>()),
-  );
-  sl.registerLazySingleton(
-        () => SellerLoginUseCase(sl<SellerAuthRepository>()),
-  );
-  sl.registerLazySingleton(
-        () => SellerRegisterUseCase(sl<SellerAuthRepository>()),
-  );
-  sl.registerLazySingleton(
-        () => SellerLogoutUseCase(sl<SellerAuthRepository>()),
-  );
-  sl.registerFactory(
-        () => SellerAuthCubit(
-      loginUseCase: sl<SellerLoginUseCase>(),
-      registerUseCase: sl<SellerRegisterUseCase>(),
-      logoutUseCase: sl<SellerLogoutUseCase>(),
-    ),
-  );
+  // // ─── Seller Auth ───────────────────────────────────────────────────────
+  // sl.registerLazySingleton<SellerAuthInterfaceDataSource>(
+  //       () => SellerRemoteDataSource(sl<Dio>(instanceName: 'publicDio')),
+  // );
+  // sl.registerLazySingleton<SellerAuthRepository>(
+  //       () => SellerAuthRepositoriesImp(sl<SellerAuthInterfaceDataSource>()),
+  // );
+  // sl.registerLazySingleton(
+  //       () => SellerLoginUseCase(sl<SellerAuthRepository>()),
+  // );
+  // sl.registerLazySingleton(
+  //       () => SellerRegisterUseCase(sl<SellerAuthRepository>()),
+  // );
+  // sl.registerLazySingleton(
+  //       () => SellerLogoutUseCase(sl<SellerAuthRepository>()),
+  // );
+  // sl.registerFactory(
+  //       () => SellerAuthCubit(
+  //     loginUseCase: sl<SellerLoginUseCase>(),
+  //     registerUseCase: sl<SellerRegisterUseCase>(),
+  //     logoutUseCase: sl<SellerLogoutUseCase>(),
+  //   ),
+  // );
 
   // ─── Categories ────────────────────────────────────────────────────────
   sl.registerLazySingleton<CategoryRemoteDataSource>(
@@ -218,24 +218,24 @@ Future<void> init() async {
     ),
   );
 
-  // ─── Add Product Feature ──────────────────────────────────────────────
-  sl.registerLazySingleton(() => GetCategoriesUseCase(sl<ProductsRepository>()));
-  sl.registerLazySingleton(() => GetBrandsUseCase(sl<ProductsRepository>()));
-  sl.registerLazySingleton(() => AddProductUseCase(sl<ProductsRepository>()));
-
-  sl.registerLazySingleton<ProductsRemoteDataSource>(
-        () => ProductsRemoteDataSourceImpl(sl<WebServices>()),
-  );
-
-  sl.registerLazySingleton<ProductsRepository>(
-        () => ProductsRepositoryImpl(sl<ProductsRemoteDataSource>()),
-  );
-
-  sl.registerFactory(() => AddProductCubit(
-    getCategoriesUseCase: sl<GetCategoriesUseCase>(),
-    getBrandsUseCase: sl<GetBrandsUseCase>(),
-    addProductUseCase: sl<AddProductUseCase>(),
-  ));
+  // // ─── Add Product Feature ──────────────────────────────────────────────
+  // sl.registerLazySingleton(() => GetCategoriesUseCase(sl<ProductsRepository>()));
+  // sl.registerLazySingleton(() => GetBrandsUseCase(sl<ProductsRepository>()));
+  // sl.registerLazySingleton(() => AddProductUseCase(sl<ProductsRepository>()));
+  //
+  // sl.registerLazySingleton<ProductsRemoteDataSource>(
+  //       () => ProductsRemoteDataSourceImpl(sl<WebServices>()),
+  // );
+  //
+  // sl.registerLazySingleton<ProductsRepository>(
+  //       () => ProductsRepositoryImpl(sl<ProductsRemoteDataSource>()),
+  // );
+  //
+  // sl.registerFactory(() => AddProductCubit(
+  //   getCategoriesUseCase: sl<GetCategoriesUseCase>(),
+  //   getBrandsUseCase: sl<GetBrandsUseCase>(),
+  //   addProductUseCase: sl<AddProductUseCase>(),
+  // ));
 
   // Wishlist Data Source
   sl.registerLazySingleton<WishlistRemoteDataSource>(
